@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nail Luxury Salon & Spa | Orillia's Premier Nail Destination</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FFFBF7;
+            --charcoal: #2C2C2C;
+            --charcoal-light: #4A4A4A;
+            --gold: #C9A962;
+            --white: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            color: var(--charcoal);
+            background: var(--cream);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('nail-luxury-site/images/nail13.jpg') center/cover no-repeat;
+            filter: brightness(0.4);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--white);
+            max-width: 900px;
+            padding: 40px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            margin-bottom: 40px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--charcoal);
+            padding: 18px 45px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            padding: 120px 0;
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .about-content h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            margin-bottom: 30px;
+        }
+
+        .about-content p {
+            font-size: 1.15rem;
+            color: var(--charcoal-light);
+            margin-bottom: 25px;
+        }
+
+        .about-content p:last-of-type {
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            padding: 120px 0;
+            background: var(--cream);
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .services-header h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            margin-bottom: 20px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+            aspect-ratio: 3/4;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 30px 25px;
+            color: var(--white);
+        }
+
+        .service-overlay h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .service-overlay p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .services-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .services-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .services-cta a {
+            color: var(--gold);
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 2px solid var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .services-cta a:hover {
+            color: var(--charcoal);
+            border-color: var(--charcoal);
+        }
+
+        /* SOCIAL PROOF SECTION */
+        .social-proof {
+            padding: 120px 0;
+            background: var(--white);
+        }
+
+        .social-proof-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 60px;
+        }
+
+        .social-proof-content h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            margin-bottom: 25px;
+        }
+
+        .social-proof-content p {
+            font-size: 1.15rem;
+            color: var(--charcoal-light);
+            line-height: 1.8;
+        }
+
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .instagram-grid img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 2px;
+            transition: transform 0.3s ease;
+        }
+
+        .instagram-grid img:hover {
+            transform: scale(1.02);
+        }
+
+        /* FINAL CTA SECTION */
+        .final-cta {
+            position: relative;
+            padding: 150px 0;
+            text-align: center;
+            overflow: hidden;
+            color: var(--white);
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('nail-luxury-site/images/nail6_headspa.jpg') center/cover no-repeat;
+            filter: brightness(0.3);
+            z-index: 0;
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 25px;
+            color: var(--white);
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            padding: 18px 45px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--charcoal);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-info {
+            margin-bottom: 30px;
+        }
+
+        .footer-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .footer-info p {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+
+        .footer-info a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 25px;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-image img {
+                height: 350px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+
+            .instagram-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .about,
+            .services,
+            .social-proof {
+                padding: 80px 0;
+            }
+
+            .final-cta {
+                padding: 100px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>The Smallest Part of Your Outfit That Says the Most</h1>
+            <p>Your outfit's on point. Your hair's dialed in. But your hands tell the real story. At Nail Luxury, we separate you from everyone that came close. Because the smallest details make the biggest impression.</p>
+            <a href="tel:7053290770" class="btn-primary">Book Your Appointment</a>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="nail-luxury-site/images/nail9.jpg" alt="Precision nail artistry">
+                </div>
+                <div class="about-content">
+                    <h2>Most People Get Close. Anna Gets It Perfect.</h2>
+                    <p>When Anna Tan opened Nail Luxury, she understood something most people miss—nails aren't just grooming. They're the detail that separates looking good from looking exceptional.</p>
+                    <p>Not everyone notices. But the people who matter do. In a handshake. In a photo. Across the table at a meeting or a date. Your hands are always visible, and they're either reinforcing your polish or undermining it.</p>
+                    <p>Anna and her team take the time to understand what you want—then execute it perfectly. Because it does matter.</p>
+                    <p>Over 222 clients trust Nail Luxury to get it right. Because when you understand the power of polish, you don't settle for adequate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services">
+        <div class="container">
+            <div class="services-header">
+                <h2>Refinement, Not Just Maintenance</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="nail-luxury-site/images/nail7.jpg" alt="Classic Manicure">
+                    <div class="service-overlay">
+                        <h3>Classic Manicure & Pedicure</h3>
+                        <p>Clean, polished, timeless. The foundation of looking put-together.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="nail-luxury-site/images/nail5.jpg" alt="Gel Extensions">
+                    <div class="service-overlay">
+                        <h3>Gel Extensions</h3>
+                        <p>Two weeks of flawless. No chips. No excuses.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="nail-luxury-site/images/nail10.jpg" alt="Nail Art">
+                    <div class="service-overlay">
+                        <h3>Nail Art</h3>
+                        <p>Intricate designs that stop conversations.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="nail-luxury-site/images/nail11.jpg" alt="Spa Pedicure">
+                    <div class="service-overlay">
+                        <h3>Spa Pedicure</h3>
+                        <p>The detail most people ignore. The advantage you don't.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="services-cta">
+                <p>See what 222+ clients already know: <a href="https://www.instagram.com/nailuxury_orillia/" target="_blank">@nailuxury_orillia</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF SECTION -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="social-proof-content">
+                <h2>222 People Appreciate the Difference</h2>
+                <p>Our clients know the difference between rushed and refined. You walk in as an appointment. You walk out feeling like you matter. The kind of place you tell your friends about.</p>
+            </div>
+            <div class="instagram-grid">
+                <img src="nail-luxury-site/images/nail1.jpg" alt="Client work showcase">
+                <img src="nail-luxury-site/images/nail2.jpg" alt="Client work showcase">
+                <img src="nail-luxury-site/images/nail3.jpg" alt="Client work showcase">
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section class="final-cta">
+        <div class="final-cta-content">
+            <h2>Don't Overlook the Detail That Matters</h2>
+            <p>Most people focus on the big things—the outfit, the hair, the look. Smart people know the smallest details carry the most weight. If your nails aren't saying what you want them to say, let's fix that.</p>
+            <div class="cta-buttons">
+                <a href="tel:7053290770" class="btn-primary">Book Your Appointment</a>
+                <a href="tel:7053290770" class="btn-secondary">Call (705) 329-0770</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-info">
+                <h3>Nail Luxury Salon & Spa</h3>
+                <p>3280 Monarch Dr, Unit 4, Orillia</p>
+                <p>Open 7 Days a Week</p>
+                <p><a href="tel:7053290770">(705) 329-0770</a></p>
+                <p><a href="https://www.instagram.com/nailuxury_orillia/" target="_blank">@nailuxury_orillia</a></p>
+            </div>
+            <div class="footer-bottom">
+                <p>2024 Nail Luxury Salon & Spa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
